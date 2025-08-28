@@ -325,9 +325,105 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
   }
 
+  // FAQ Accordion functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.closest('.faq-item');
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      
+      // Toggle current FAQ item
+      if (!isActive) {
+        faqItem.classList.add('active');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Waitlist form functionality
+  const waitlistForm = document.getElementById('waitlistForm');
+  const successMessage = document.getElementById('successMessage');
+  const emailInput = document.getElementById('email');
+  const waitlistBtn = document.querySelector('.waitlist-btn');
+  const btnText = document.querySelector('.btn-text');
+  const btnLoading = document.querySelector('.btn-loading');
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = emailInput.value.trim();
+      
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        // Add shake animation for invalid email
+        emailInput.style.animation = 'shake 0.5s ease-in-out';
+        emailInput.focus();
+        setTimeout(() => {
+          emailInput.style.animation = '';
+        }, 500);
+        return;
+      }
+      
+      // Show loading state
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'block';
+      waitlistBtn.disabled = true;
+      waitlistBtn.style.opacity = '0.7';
+      
+      // Simulate API call with mock data
+      setTimeout(() => {
+        // Store email in localStorage as mock data
+        const waitlistData = JSON.parse(localStorage.getItem('neurolinkWaitlist') || '[]');
+        const userData = {
+          email: email,
+          timestamp: new Date().toISOString(),
+          id: Date.now().toString()
+        };
+        waitlistData.push(userData);
+        localStorage.setItem('neurolinkWaitlist', JSON.stringify(waitlistData));
+        
+        // Hide form and show success message
+        waitlistForm.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Log mock data for development
+        console.log('Waitlist signup (mock):', userData);
+        console.log('Total waitlist members:', waitlistData.length);
+        
+        // Add success animation to the section
+        const waitlistSection = document.querySelector('.waitlist');
+        waitlistSection.style.background = 'linear-gradient(135deg, var(--color-success) 0%, #20B2AA 100%)';
+        setTimeout(() => {
+          waitlistSection.style.background = 'linear-gradient(135deg, var(--color-neural) 0%, var(--color-neural-secondary) 100%)';
+        }, 3000);
+        
+      }, 1500); // Simulate network delay
+    });
+  }
+
+  // Add shake animation for form validation
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+  `;
+  document.head.appendChild(shakeStyle);
+
   console.log('%c🧠 NeuroLink Pro - Brain Wave AI Reader initialized', 'color: #667eea; font-size: 14px; font-weight: bold;');
   console.log('%c🚀 Experience the future of brain-computer interaction', 'color: #764ba2; font-size: 12px;');
   console.log('%c💻 Enhanced with advanced animations and parallax effects', 'color: #ff6b6b; font-size: 10px;');
+  console.log('%c📝 FAQ and Waitlist features activated', 'color: #30D158; font-size: 10px;');
   
   // Add particle fade animation to CSS dynamically
   const style = document.createElement('style');
