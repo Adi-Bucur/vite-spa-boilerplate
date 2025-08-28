@@ -5,18 +5,22 @@
   --font-display: 'Orbitron', 'Inter', system-ui, sans-serif;
   --font-code: 'JetBrains Mono', monospace;
   
-  --color-primary: #007AFF;
-  --color-primary-hover: #0056CC;
-  --color-secondary: #5856D6;
-  --color-success: #30D158;
-  --color-background: #ffffff;
-  --color-surface: #f5f5f7;
-  --color-text-primary: #1d1d1f;
-  --color-text-secondary: #86868b;
-  --color-text-tertiary: #6e6e73;
-  --color-border: #d2d2d7;
-  --color-neural: #667eea;
-  --color-neural-secondary: #764ba2;
+  /* Accessible Color Palette with WCAG AA Compliance */
+  --color-primary: #4F46E5; /* Indigo - AA contrast */
+  --color-primary-hover: #3730A3; /* Darker for hover */
+  --color-secondary: #A855F7; /* Purple accent */
+  --color-success: #22C55E; /* Green - accessible */
+  --color-error: #EF4444; /* Red for errors */
+  --color-warning: #F59E0B; /* Amber for warnings */
+  --color-background: #FFFFFF;
+  --color-surface: #F9FAFB; /* Light gray background */
+  --color-text-primary: #1F2937; /* Dark gray for text - AA contrast */
+  --color-text-secondary: #4B5563; /* Medium gray - AA contrast */
+  --color-text-tertiary: #6B7280; /* Lighter gray - still AA compliant */
+  --color-border: #E5E7EB;
+  --color-neural: #4F46E5; /* Match primary for consistency */
+  --color-neural-secondary: #A855F7; /* Match secondary */
+  --color-focus: #3B82F6; /* Blue focus ring - high contrast */
   
   --spacing-xs: 8px;
   --spacing-sm: 16px;
@@ -44,14 +48,146 @@
   box-sizing: border-box;
 }
 
+/* Skip to main content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Focus Management */
+*:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text-primary: #000000;
+    --color-text-secondary: #2D3748;
+    --color-border: #2D3748;
+  }
+}
+
 body {
   font-family: var(--font-family);
   color: var(--color-text-primary);
   background: var(--color-background);
   line-height: 1.6;
+  font-size: 16px; /* Ensure minimum 16px for accessibility */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Responsive typography scale */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  html { font-size: 17px; }
+}
+
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
+
+@media (min-width: 1200px) {
+  html { font-size: 19px; }
+}
+
+/* Improved typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+  color: var(--color-text-primary);
+  text-wrap: balance; /* Better line breaks */
+}
+
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 2rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1em;
+  max-width: 70ch; /* Optimal reading width */
+  text-wrap: pretty; /* Better text wrapping */
+}
+
+/* Better link styling */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+a:hover, a:focus {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Enhanced contrast for better readability */
+@media (prefers-contrast: high) {
+  body {
+    background: #000000;
+    color: #ffffff;
+  }
+  
+  :root {
+    --color-background: #000000;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e0e0e0;
+    --color-primary: #66ccff;
+    --color-border: #666666;
+  }
 }
 
 /* Navigation */
@@ -105,6 +241,45 @@ body {
 @keyframes logoShine {
   0% { left: -100%; }
   50%, 100% { left: 100%; }
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.hamburger {
+  width: 24px;
+  height: 3px;
+  background: var(--color-text-primary);
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .nav-links {
@@ -236,18 +411,31 @@ body {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 8vw, 5rem); /* Slightly smaller for better mobile readability */
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em; /* Reduced for better readability */
   margin-bottom: var(--spacing-md);
   background: linear-gradient(135deg, #ffffff 0%, var(--color-neural) 30%, var(--color-neural-secondary) 70%, #ff6b6b 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.1;
+  line-height: 1.2; /* Improved line height */
   animation: titleGlitch 3s ease-out, titleGlow 4s ease-in-out infinite;
   position: relative;
   filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+  text-wrap: balance;
+  max-width: 15ch; /* Better line breaks */
+  margin: 0 auto var(--spacing-md);
+}
+
+/* High contrast fallback */
+@media (prefers-contrast: high) {
+  .hero-title {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  }
 }
 
 @keyframes titleGlitch {
@@ -293,22 +481,42 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1.125rem, 3vw, 1.5rem); /* Better readability */
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9); /* Improved contrast */
   margin-bottom: var(--spacing-lg);
   animation: fadeInUp 1s ease-out 0.2s both;
-  font-family: var(--font-code);
-  letter-spacing: 0.05em;
+  font-family: var(--font-family); /* Use main font for better readability */
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  text-wrap: balance;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .hero-subtitle {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  }
 }
 
 .hero-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.85); /* Better contrast */
+  max-width: 55ch; /* Optimal reading width */
   margin: 0 auto var(--spacing-2xl);
-  line-height: 1.7;
+  line-height: 1.6;
   animation: fadeInUp 1s ease-out 0.4s both;
+  text-wrap: pretty;
+}
+
+@media (prefers-contrast: high) {
+  .hero-description {
+    color: #ffffff;
+  }
 }
 
 .hero-cta {
@@ -771,7 +979,7 @@ body {
   }
 }
 
-/* Button Styles */
+/* Button Styles with Enhanced Accessibility */
 .cta-primary {
   background: var(--color-primary);
   color: white;
@@ -782,14 +990,50 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px; /* WCAG touch target size */
+  min-width: 44px;
+}
+
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta-primary:hover::before {
+    left: 100%;
+  }
 }
 
 .cta-primary:hover {
   background: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.4);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta-primary:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.cta-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+}
+
+.cta-primary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .cta-secondary {
@@ -824,15 +1068,20 @@ section {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 2.5rem); /* Improved scale */
   font-weight: 700;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   position: relative;
   display: inline-block;
   width: 100%;
+  line-height: 1.3;
+  text-wrap: balance;
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-title::after {
@@ -890,8 +1139,19 @@ section {
 }
 
 .feature-card:hover {
-  transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .feature-card:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.feature-card:focus-within {
+  box-shadow: var(--shadow-lg);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .feature-icon {
@@ -1377,14 +1637,47 @@ section {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Responsive Design */
+/* Mobile Navigation */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+  
   .nav-links {
-    gap: var(--spacing-md);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links.open {
+    right: 0;
   }
   
   .nav-links a {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-cta {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xl) !important;
   }
   
   .hero {
@@ -1415,8 +1708,20 @@ section {
     text-align: center;
   }
   
-  .nav-links {
-    display: none;
+  /* Navigation handled by mobile styles above */
+  
+  /* Improved mobile spacing */
+  .hero {
+    padding-top: 80px;
+    min-height: 80vh; /* Reduced for mobile */
+  }
+  
+  .hero-content {
+    padding: var(--spacing-md);
+  }
+  
+  .section-container {
+    padding: 0 var(--spacing-md);
   }
 }
 
@@ -2276,6 +2581,44 @@ section {
 .advantage-cta:hover {
   background: var(--color-neural-secondary);
   transform: translateY(-2px);
+}
+
+/* Performance optimizations */
+.hero-background iframe {
+  will-change: transform;
+}
+
+/* Reduce animations for better performance on low-end devices */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .brain-animation,
+  .neural-network-animation,
+  .hero-visual {
+    animation-duration: 4s; /* Slower animations on mobile */
+  }
+}
+
+/* Optimize for print */
+@media print {
+  .hero-background,
+  .nav,
+  .waitlist,
+  .footer {
+    display: none;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Optimize scrolling performance */
+.hero,
+.features,
+.technology,
+.pricing {
+  contain: layout style paint;
 }
 
 /* Responsive Styles for New Sections */

@@ -5,39 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeuroLink Pro - Brain Wave AI Reader</title>
+    <meta name="description" content="Revolutionary brain-computer interface technology with 99.7% accuracy. Control technology with your thoughts. FDA-approved, secure, and compatible with all platforms." />
+    <meta name="keywords" content="brain computer interface, neurotechnology, AI, accessibility, assistive technology" />
+    <meta property="og:title" content="NeuroLink Pro - Control Technology With Your Mind" />
+    <meta property="og:description" content="The world's first consumer-grade brain-computer interface that actually works. 99.7% accuracy, <10ms response time." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Optimized font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Resource hints for better performance -->
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://finisher.co">
   </head>
   <body>
     <div id="app">
+      <!-- Skip to main content link for screen readers -->
+      <a href="#main" class="skip-link">Skip to main content</a>
+      
       <!-- Navigation -->
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-          <div class="nav-logo">NeuroLink Pro</div>
-          <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#technology">Technology</a>
-            <a href="#specs">Specifications</a>
-            <a href="#faq">FAQ</a>
-            <a href="#pricing" class="nav-cta">Buy Now</a>
+          <div class="nav-logo" aria-label="NeuroLink Pro home">NeuroLink Pro</div>
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+          </button>
+          <div class="nav-links" id="nav-menu" role="menubar">
+            <a href="#features" role="menuitem" aria-label="View features section">Features</a>
+            <a href="#technology" role="menuitem" aria-label="View technology section">Technology</a>
+            <a href="#specs" role="menuitem" aria-label="View specifications section">Specifications</a>
+            <a href="#faq" role="menuitem" aria-label="View FAQ section">FAQ</a>
+            <a href="#pricing" class="nav-cta" role="menuitem" aria-label="View pricing and buy now">Buy Now</a>
           </div>
         </div>
       </nav>
 
       <!-- Hero Section -->
-      <section class="hero">
+      <main id="main" role="main">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-background">
           <iframe 
             src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&loop=1&mute=1&playlist=5fpGTE3aIw0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1" 
             frameborder="0" 
             allow="autoplay; encrypted-media" 
-            allowfullscreen>
+            allowfullscreen
+            loading="lazy"
+            title="NeuroLink Pro demonstration video">
           </iframe>
         </div>
         <div class="hero-content">
           <div class="hero-badge">🧠 Revolutionary Technology • Limited Early Access</div>
-          <h1 class="hero-title">Control Technology<br><span class="gradient-text">With Your Mind</span></h1>
+          <h1 id="hero-title" class="hero-title">Control Technology<br><span class="gradient-text">With Your Mind</span></h1>
           <p class="hero-subtitle">The world's first consumer-grade brain-computer interface that actually works</p>
           <p class="hero-description">Join 50,000+ innovators, researchers, and tech pioneers who are already shaping the future. NeuroLink Pro reads your brain waves with 99.7% accuracy and turns your thoughts into instant digital actions.</p>
           <div class="hero-stats">
@@ -55,11 +77,11 @@
             </div>
           </div>
           <div class="hero-cta">
-            <button class="cta-primary">🚀 Join the Revolution - Reserve Now</button>
-            <button class="cta-secondary">Watch Live Demo</button>
+            <button class="cta-primary" aria-describedby="hero-guarantee">🚀 Join the Revolution - Reserve Now</button>
+            <button class="cta-secondary" aria-label="Watch live demonstration of NeuroLink Pro">Watch Live Demo</button>
           </div>
-          <div class="hero-guarantee">
-            <span class="guarantee-icon">🛡️</span>
+          <div id="hero-guarantee" class="hero-guarantee" role="note" aria-label="Money back guarantee information">
+            <span class="guarantee-icon" aria-hidden="true">🛡️</span>
             <span>30-day money-back guarantee • No payment until shipping</span>
           </div>
         </div>
@@ -98,17 +120,18 @@
         </div>
       </section>
 
+      </section>
       <!-- Features Section -->
-      <section id="features" class="features">
+      <section id="features" class="features" aria-labelledby="features-title">
         <div class="section-container">
           <div class="features-header">
-            <h2 class="section-title">Why 50,000+ People Choose NeuroLink Pro</h2>
+            <h2 id="features-title" class="section-title">Why 50,000+ People Choose NeuroLink Pro</h2>
             <p class="section-subtitle">Experience capabilities that seemed impossible just years ago</p>
           </div>
           <div class="features-grid">
-            <div class="feature-card featured">
-              <div class="feature-icon">🧠</div>
-              <div class="feature-badge">Most Popular</div>
+            <article class="feature-card featured" role="article">
+              <div class="feature-icon" aria-hidden="true">🧠</div>
+              <div class="feature-badge" aria-label="Most popular feature">Most Popular</div>
               <h3>Think. Click. Done.</h3>
               <p class="feature-benefit">Control your computer, phone, smart home, and more with pure thought</p>
               <p class="feature-description">Our AI learns your unique brain patterns and translates them into precise digital actions. No more keyboards, mice, or touchscreens needed.</p>
@@ -116,8 +139,8 @@
                 <span class="proof-stat">99.7% accuracy</span> • <span class="proof-testimonial">"Life-changing" - Tech Review</span>
               </div>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">⚡</div>
+            <article class="feature-card" role="article">
+              <div class="feature-icon" aria-hidden="true">⚡</div>
               <h3>Faster Than Human Reflexes</h3>
               <p class="feature-benefit">React before you even realize you want to</p>
               <p class="feature-description">With &lt;10ms response time, NeuroLink Pro responds faster than your finger can move. Perfect for gaming, trading, emergency response, and accessibility.</p>
@@ -125,8 +148,8 @@
                 <span class="proof-stat">&lt;10ms latency</span> • <span class="proof-testimonial">"Unbelievable speed" - Gamer Pro</span>
               </div>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔒</div>
+            <article class="feature-card" role="article">
+              <div class="feature-icon" aria-hidden="true">🔒</div>
               <h3>Your Thoughts Stay Private</h3>
               <p class="feature-benefit">Military-grade security for your most personal data</p>
               <p class="feature-description">End-to-end encryption with quantum-resistant algorithms. Your mental data never leaves your device unencrypted. We can't read your thoughts, and neither can anyone else.</p>
@@ -134,8 +157,8 @@
                 <span class="proof-stat">256-bit encryption</span> • <span class="proof-testimonial">"Bulletproof security" - CyberSec</span>
               </div>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">🌐</div>
+            <article class="feature-card" role="article">
+              <div class="feature-icon" aria-hidden="true">🌐</div>
               <h3>Works With Everything</h3>
               <p class="feature-benefit">One device, infinite possibilities</p>
               <p class="feature-description">Compatible with every major platform and thousands of applications. Our open API lets developers create mind-controlled experiences you never imagined.</p>
@@ -143,8 +166,8 @@
                 <span class="proof-stat">500+ integrations</span> • <span class="proof-testimonial">"Seamless setup" - DevCommunity</span>
               </div>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">🎯</div>
+            <article class="feature-card" role="article">
+              <div class="feature-icon" aria-hidden="true">🎯</div>
               <h3>Learns & Adapts</h3>
               <p class="feature-benefit">Gets better every time you use it</p>
               <p class="feature-description">Self-improving AI analyzes your patterns and preferences, becoming more accurate and intuitive with each session. It's like having a digital extension of your mind.</p>
@@ -152,8 +175,8 @@
                 <span class="proof-stat">Continuous learning</span> • <span class="proof-testimonial">"Reads my mind" - Beta User</span>
               </div>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">♿</div>
+            <article class="feature-card" role="article">
+              <div class="feature-icon" aria-label="Universal accessibility symbol">♿</div>
               <h3>Accessibility Revolution</h3>
               <p class="feature-benefit">Technology that adapts to every ability</p>
               <p class="feature-description">Empowers users with mobility challenges, ALS, spinal injuries, or other conditions to control technology naturally and independently.</p>
@@ -165,11 +188,16 @@
         </div>
       </section>
 
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- Social Proof Section -->
-      <section class="social-proof">
+      <section class="social-proof" aria-labelledby="social-proof-title">
         <div class="section-container">
           <div class="proof-header">
-            <h2 class="section-title">Trusted by Industry Leaders</h2>
+            <h2 id="social-proof-title" class="section-title">Trusted by Industry Leaders</h2>
             <p class="section-subtitle">See why top companies and researchers choose NeuroLink Pro</p>
           </div>
           <div class="companies-grid">
@@ -180,42 +208,42 @@
             <div class="company-logo">Apple Accessibility</div>
           </div>
           <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <blockquote class="testimonial-card" cite="Stanford Medical Center">
               <div class="testimonial-content">
                 <p>"NeuroLink Pro has revolutionized how our paralyzed patients interact with technology. The accuracy and responsiveness are beyond anything we've seen before."</p>
               </div>
-              <div class="testimonial-author">
-                <img src="/api/placeholder/48/48" alt="Dr. Sarah Chen" class="author-avatar">
+              <footer class="testimonial-author">
+                <img src="/api/placeholder/48/48" alt="Portrait of Dr. Sarah Chen" class="author-avatar" loading="lazy">
                 <div class="author-info">
-                  <div class="author-name">Dr. Sarah Chen</div>
+                  <cite class="author-name">Dr. Sarah Chen</cite>
                   <div class="author-title">Neurologist, Stanford Medical</div>
                 </div>
-              </div>
-            </div>
-            <div class="testimonial-card">
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
               <div class="testimonial-content">
                 <p>"As a competitive gamer with limited mobility, NeuroLink Pro gave me my passion back. I'm now ranking in the top 1% again, purely through thought control."</p>
               </div>
-              <div class="testimonial-author">
-                <img src="/api/placeholder/48/48" alt="Alex Rodriguez" class="author-avatar">
+              <footer class="testimonial-author">
+                <img src="/api/placeholder/48/48" alt="Portrait of Alex Rodriguez" class="author-avatar" loading="lazy">
                 <div class="author-info">
-                  <div class="author-name">Alex Rodriguez</div>
+                  <cite class="author-name">Alex Rodriguez</cite>
                   <div class="author-title">Pro Gamer & Accessibility Advocate</div>
                 </div>
-              </div>
-            </div>
-            <div class="testimonial-card">
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
               <div class="testimonial-content">
                 <p>"The potential for productivity is insane. I can code, design, and manage multiple projects simultaneously just by thinking. It's like having superpowers."</p>
               </div>
-              <div class="testimonial-author">
-                <img src="/api/placeholder/48/48" alt="Marcus Thompson" class="author-avatar">
+              <footer class="testimonial-author">
+                <img src="/api/placeholder/48/48" alt="Portrait of Marcus Thompson" class="author-avatar" loading="lazy">
                 <div class="author-info">
-                  <div class="author-name">Marcus Thompson</div>
+                  <cite class="author-name">Marcus Thompson</cite>
                   <div class="author-title">Tech Lead, Fortune 500</div>
                 </div>
-              </div>
-            </div>
+              </footer>
+            </blockquote>
           </div>
           <div class="media-mentions">
             <div class="mention">"The future is here" - TechCrunch</div>
@@ -227,12 +255,12 @@
       </section>
 
       <!-- Technology Deep Dive -->
-      <section id="technology" class="technology">
+      <section id="technology" class="technology" aria-labelledby="technology-title">
         <div class="section-container">
           <div class="tech-content">
             <div class="tech-text">
               <div class="tech-badge">🔬 10 Years of R&D • $200M Investment</div>
-              <h2>The Science Behind the Magic</h2>
+              <h2 id="technology-title">The Science Behind the Magic</h2>
               <p class="tech-intro">What makes NeuroLink Pro impossibly accurate? Three breakthrough technologies working in perfect harmony:</p>
               
               <div class="tech-breakthrough">
@@ -303,9 +331,9 @@
       </section>
 
       <!-- Specifications -->
-      <section id="specs" class="specs">
+      <section id="specs" class="specs" aria-labelledby="specs-title">
         <div class="section-container">
-          <h2 class="section-title">Technical Specifications</h2>
+          <h2 id="specs-title" class="section-title">Technical Specifications</h2>
           <div class="specs-grid">
             <div class="spec-group">
               <h3>Hardware</h3>
@@ -339,11 +367,11 @@
       </section>
 
       <!-- Pricing -->
-      <section id="pricing" class="pricing">
+      <section id="pricing" class="pricing" aria-labelledby="pricing-title">
         <div class="section-container">
           <div class="pricing-header">
             <div class="urgency-badge">🔥 Limited Time: Early Bird Pricing</div>
-            <h2 class="section-title">Join the Neural Revolution</h2>
+            <h2 id="pricing-title" class="section-title">Join the Neural Revolution</h2>
             <p class="pricing-subtitle">Be among the first 10,000 people to own the future</p>
           </div>
           <div class="pricing-comparison">
@@ -426,58 +454,58 @@
       </section>
 
       <!-- Competitive Advantages -->
-      <section class="competitive-advantages">
+      <section class="competitive-advantages" aria-labelledby="advantages-title">
         <div class="section-container">
           <div class="advantages-header">
-            <h2 class="section-title">Why NeuroLink Pro Beats Every Alternative</h2>
+            <h2 id="advantages-title" class="section-title">Why NeuroLink Pro Beats Every Alternative</h2>
             <p class="section-subtitle">See how we compare to other brain-computer interfaces</p>
           </div>
-          <div class="comparison-table">
-            <div class="comparison-header">
-              <div class="feature-column">Feature</div>
-              <div class="neurolink-column">
+          <div class="comparison-table" role="table" aria-label="Feature comparison between NeuroLink Pro and competitors">
+            <div class="comparison-header" role="rowgroup">
+              <div class="feature-column" role="columnheader">Feature</div>
+              <div class="neurolink-column" role="columnheader">
                 <div class="brand-highlight">NeuroLink Pro</div>
               </div>
-              <div class="competitor-column">Competitor A</div>
-              <div class="competitor-column">Competitor B</div>
-              <div class="competitor-column">DIY Solutions</div>
+              <div class="competitor-column" role="columnheader">Competitor A</div>
+              <div class="competitor-column" role="columnheader">Competitor B</div>
+              <div class="competitor-column" role="columnheader">DIY Solutions</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Accuracy Rate</div>
               <div class="neurolink-value">✅ 99.7%</div>
               <div class="competitor-value">❌ 85%</div>
               <div class="competitor-value">❌ 78%</div>
               <div class="competitor-value">❌ 45-60%</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Response Time</div>
               <div class="neurolink-value">✅ &lt;10ms</div>
               <div class="competitor-value">❌ 50-100ms</div>
               <div class="competitor-value">❌ 200ms+</div>
               <div class="competitor-value">❌ 500ms+</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Setup Time</div>
               <div class="neurolink-value">✅ 15 minutes</div>
               <div class="competitor-value">❌ 2-4 hours</div>
               <div class="competitor-value">❌ 1-2 days</div>
               <div class="competitor-value">❌ Weeks</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Learning Curve</div>
               <div class="neurolink-value">✅ Instant</div>
               <div class="competitor-value">❌ Days</div>
               <div class="competitor-value">❌ Weeks</div>
               <div class="competitor-value">❌ Months</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Price</div>
               <div class="neurolink-value">✅ $2,999</div>
               <div class="competitor-value">❌ $8,000+</div>
               <div class="competitor-value">❌ $12,000+</div>
               <div class="competitor-value">❌ $500-5,000</div>
             </div>
-            <div class="comparison-row">
+            <div class="comparison-row" role="row">
               <div class="feature-name">Support Quality</div>
               <div class="neurolink-value">✅ 24/7 Expert</div>
               <div class="competitor-value">❌ Business Hours</div>
@@ -494,9 +522,9 @@
       </section>
 
       <!-- FAQ Section -->
-      <section id="faq" class="faq">
+      <section id="faq" class="faq" aria-labelledby="faq-title">
         <div class="section-container">
-          <h2 class="section-title">Frequently Asked Questions</h2>
+          <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
           <div class="faq-container">
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
@@ -557,20 +585,23 @@
       </section>
 
       <!-- Waitlist Section -->
-      <section id="waitlist" class="waitlist">
+      <section id="waitlist" class="waitlist" aria-labelledby="waitlist-title">
         <div class="section-container">
           <div class="waitlist-content">
-            <h2 class="section-title">Join the NeuroLink Pro Waitlist</h2>
+            <h2 id="waitlist-title" class="section-title">Join the NeuroLink Pro Waitlist</h2>
             <p class="waitlist-description">Be the first to know when NeuroLink Pro becomes available. Get exclusive early access, special pricing, and updates on our revolutionary brain-computer interface technology.</p>
             
-            <form id="waitlistForm" class="waitlist-form">
+            <form id="waitlistForm" class="waitlist-form" novalidate aria-labelledby="waitlist-title">
               <div class="form-group">
+                <label for="email" class="sr-only">Email address</label>
                 <input 
                   type="email" 
                   id="email" 
                   name="email" 
                   placeholder="Enter your email address" 
                   required 
+                  autocomplete="email"
+                  aria-describedby="email-help"
                   class="email-input"
                 >
                 <button type="submit" class="waitlist-btn">
@@ -580,7 +611,7 @@
                   </span>
                 </button>
               </div>
-              <p class="form-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+              <p id="email-help" class="form-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
             </form>
 
             <div id="successMessage" class="success-message" style="display: none;">
@@ -603,12 +634,13 @@
         </div>
       </section>
 
+      </main>
       <!-- Footer -->
-      <footer class="footer finisher-header" style="width: 100%; height: 400px; position: relative;">
+      <footer class="footer finisher-header" role="contentinfo" aria-labelledby="footer-heading" style="width: 100%; height: 400px; position: relative;">
         <div class="footer-container" style="position: relative; z-index: 10;">
           <div class="footer-content">
             <div class="footer-brand">
-              <h3>NeuroLink Pro</h3>
+              <h3 id="footer-heading">NeuroLink Pro</h3>
               <p>Advancing human-computer interaction through revolutionary brain-wave technology.</p>
             </div>
             <div class="footer-links">
@@ -639,7 +671,7 @@
       </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
-    <script src="https://finisher.co/lab/header/assets/finisher-header.es5.min.js" type="text/javascript"></script>
+    <script src="https://finisher.co/lab/header/assets/finisher-header.es5.min.js" type="text/javascript" async></script>
     <script type="text/javascript">
       new FinisherHeader({
         "count": 5,
