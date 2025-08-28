@@ -1,4 +1,5 @@
 import './style.css'
+import lottie from 'lottie-web'
 
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
@@ -211,15 +212,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Neural network animation enhancement
-  const neuralNetwork = document.querySelector('.neural-network');
-  if (neuralNetwork) {
-    let pulseIntensity = 0;
-    setInterval(() => {
-      pulseIntensity += 0.1;
-      const brightness = 1 + Math.sin(pulseIntensity) * 0.3;
-      neuralNetwork.style.filter = `brightness(${brightness}) hue-rotate(${pulseIntensity * 10}deg)`;
-    }, 150);
+  // Lottie animation for neural network
+  const lottieContainer = document.getElementById('lottie-animation');
+  if (lottieContainer) {
+    lottie.loadAnimation({
+      container: lottieContainer,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://lottie.host/7440c32c-1b8f-47b8-8c09-7f49ceac1d46/j7Pvs8pgHk.lottie'
+    });
   }
 
   // Smooth reveal animation for sections
