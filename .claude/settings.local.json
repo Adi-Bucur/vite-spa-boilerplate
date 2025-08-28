@@ -11,7 +11,10 @@
       "Read(C:\\Users\\adi87\\Downloads/**)",
       "WebFetch(domain:www.apple.com)",
       "Bash(npm run dev:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "WebFetch(domain:finisher.co)"
     ],
     "deny": []
   }
