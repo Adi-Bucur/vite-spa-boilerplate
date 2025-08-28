@@ -215,23 +215,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Lottie animation for neural network
   const lottieContainer = document.getElementById('lottie-animation');
   if (lottieContainer) {
-    // Try to load from Lottie Host JSON endpoint
-    fetch('https://lottie.host/7440c32c-1b8f-47b8-8c09-7f49ceac1d46/j7Pvs8pgHk.json')
-      .then(response => response.json())
-      .then(animationData => {
-        lottie.loadAnimation({
-          container: lottieContainer,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData: animationData
-        });
-      })
-      .catch(error => {
-        console.warn('Failed to load Lottie animation:', error);
-        // Fallback: show some visual indicator
-        lottieContainer.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--color-neural); font-family: var(--font-code); font-size: 1.2rem;">🧠 Neural Animation Loading...</div>';
-      });
+    // Load local Lottie file
+    lottie.loadAnimation({
+      container: lottieContainer,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/Brain.lottie'
+    });
   }
 
   // Smooth reveal animation for sections

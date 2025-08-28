@@ -14,7 +14,9 @@
       "Bash(npm run build:*)",
       "Bash(curl:*)",
       "WebSearch",
-      "WebFetch(domain:finisher.co)"
+      "WebFetch(domain:finisher.co)",
+      "Read(c:\\Users\\adi87\\OneDrive\\Escritorio/**)",
+      "WebFetch(domain:lottie.host)"
     ],
     "deny": []
   }
