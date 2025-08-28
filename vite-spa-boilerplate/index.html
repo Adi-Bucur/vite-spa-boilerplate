@@ -4,13 +4,190 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeuroLink Pro - Brain-Computer Interface</title>
+    <title>NeuroLink Pro - Brain Wave AI Reader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@200;300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="nav-logo">NeuroLink Pro</div>
+          <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#technology">Technology</a>
+            <a href="#specs">Specifications</a>
+            <a href="#pricing" class="nav-cta">Buy Now</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">NeuroLink Pro</h1>
+          <p class="hero-subtitle">The future of brain-computer interface</p>
+          <p class="hero-description">Advanced AI-powered brain wave signal reader that translates your thoughts into digital commands with unprecedented precision.</p>
+          <div class="hero-cta">
+            <button class="cta-primary">Pre-order now</button>
+            <button class="cta-secondary">Learn more</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="product-showcase">
+            <div class="product-image"></div>
+            <div class="brain-waves"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <div class="section-container">
+          <h2 class="section-title">Revolutionary Technology</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">🧠</div>
+              <h3>AI-Powered Analysis</h3>
+              <p>Advanced machine learning algorithms interpret brain signals with 99.7% accuracy</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Real-time Processing</h3>
+              <p>Instant signal processing with less than 10ms latency for seamless interaction</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h3>Secure & Private</h3>
+              <p>End-to-end encryption ensures your thoughts remain completely private</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🌐</div>
+              <h3>Universal Compatibility</h3>
+              <p>Works seamlessly with all major devices and operating systems</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technology Deep Dive -->
+      <section id="technology" class="technology">
+        <div class="section-container">
+          <div class="tech-content">
+            <div class="tech-text">
+              <h2>Next-Generation Neural Interface</h2>
+              <p>Our proprietary quantum sensors capture the most subtle electrical patterns in your brain, while our AI engine processes millions of neural pathways simultaneously.</p>
+              <ul class="tech-features">
+                <li>256-channel high-resolution EEG sensors</li>
+                <li>Quantum-enhanced signal amplification</li>
+                <li>Self-learning AI adaptation</li>
+                <li>Wireless connectivity up to 100m range</li>
+              </ul>
+            </div>
+            <div class="tech-visual">
+              <div class="neural-network"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Specifications -->
+      <section id="specs" class="specs">
+        <div class="section-container">
+          <h2 class="section-title">Technical Specifications</h2>
+          <div class="specs-grid">
+            <div class="spec-group">
+              <h3>Hardware</h3>
+              <ul>
+                <li><span>Sensors:</span> 256 high-precision electrodes</li>
+                <li><span>Battery:</span> 48-hour continuous use</li>
+                <li><span>Weight:</span> 285g (10.1 oz)</li>
+                <li><span>Materials:</span> Medical-grade titanium</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h3>Performance</h3>
+              <ul>
+                <li><span>Accuracy:</span> 99.7% signal recognition</li>
+                <li><span>Latency:</span> &lt;10ms response time</li>
+                <li><span>Range:</span> 100m wireless connectivity</li>
+                <li><span>Channels:</span> 256 simultaneous readings</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h3>Compatibility</h3>
+              <ul>
+                <li><span>OS Support:</span> Windows, macOS, Linux</li>
+                <li><span>Mobile:</span> iOS 14+, Android 10+</li>
+                <li><span>Connectivity:</span> Bluetooth 5.2, Wi-Fi 6</li>
+                <li><span>API:</span> RESTful, WebSocket, SDK</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="pricing">
+        <div class="section-container">
+          <h2 class="section-title">Be Among the First</h2>
+          <div class="pricing-card">
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">2,999</span>
+              <span class="period">Early Bird</span>
+            </div>
+            <p class="price-description">Limited time pre-order pricing. Ships Q2 2025.</p>
+            <ul class="price-features">
+              <li>NeuroLink Pro Device</li>
+              <li>Premium Carrying Case</li>
+              <li>1-Year Warranty</li>
+              <li>Priority Support</li>
+              <li>Free Software Updates</li>
+            </ul>
+            <button class="price-cta">Reserve Your NeuroLink Pro</button>
+            <p class="price-note">No payment required until shipping</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <h3>NeuroLink Pro</h3>
+              <p>Advancing human-computer interaction through revolutionary brain-wave technology.</p>
+            </div>
+            <div class="footer-links">
+              <div class="footer-column">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#technology">Technology</a>
+                <a href="#specs">Specifications</a>
+              </div>
+              <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">Documentation</a>
+                <a href="#">Community</a>
+                <a href="#">Contact</a>
+              </div>
+              <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Privacy</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 NeuroLink Pro. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
