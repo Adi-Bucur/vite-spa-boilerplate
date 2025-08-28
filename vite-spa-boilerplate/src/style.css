@@ -151,6 +151,41 @@ body {
   will-change: transform;
 }
 
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(15, 15, 35, 0.7) 0%, 
+    rgba(26, 26, 46, 0.7) 50%, 
+    rgba(22, 33, 62, 0.7) 100%);
+  z-index: 2;
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -203,7 +238,7 @@ body {
   padding: 0 var(--spacing-md);
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   will-change: transform;
 }
 
@@ -299,8 +334,8 @@ body {
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  opacity: 0.8;
-  z-index: 1;
+  opacity: 0.9;
+  z-index: 4;
 }
 
 .product-showcase {
@@ -309,23 +344,242 @@ body {
   height: 100%;
 }
 
-.video-container {
-  position: relative;
+/* Brain Animation */
+.brain-animation {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.video-container iframe {
+.brain-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  animation: brainPulse 3s ease-in-out infinite;
+}
+
+.brain-hemisphere {
+  position: absolute;
+  width: 140px;
+  height: 180px;
+  border-radius: 70px 70px 40px 40px;
+  background: linear-gradient(45deg, 
+    rgba(103, 126, 234, 0.8) 0%, 
+    rgba(118, 75, 162, 0.8) 100%);
+  box-shadow: 0 0 30px rgba(103, 126, 234, 0.5);
+  animation: brainGlow 2s ease-in-out infinite alternate;
+}
+
+.brain-hemisphere.left {
+  left: 10px;
+  transform: rotate(-5deg);
+}
+
+.brain-hemisphere.right {
+  right: 10px;
+  transform: rotate(5deg);
+}
+
+.brain-lobe {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: lobeActivity 1.5s ease-in-out infinite;
+}
+
+.brain-lobe.frontal {
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 20px;
+  animation-delay: 0s;
+}
+
+.brain-lobe.parietal {
+  width: 40px;
+  height: 40px;
+  top: 30px;
+  right: 15px;
+  animation-delay: 0.3s;
+}
+
+.brain-lobe.temporal {
+  width: 45px;
+  height: 45px;
+  bottom: 40px;
+  left: 15px;
+  animation-delay: 0.6s;
+}
+
+.brain-lobe.occipital {
+  width: 35px;
+  height: 35px;
+  bottom: 30px;
+  right: 20px;
+  animation-delay: 0.9s;
+}
+
+.brain-waves {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  border: 2px solid rgba(103, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: waveExpand 3s ease-out infinite;
+}
+
+.wave-1 {
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  left: 125px;
+  animation-delay: 0s;
+}
+
+.wave-2 {
+  width: 150px;
+  height: 150px;
+  top: 75px;
+  left: 100px;
+  animation-delay: 0.5s;
+}
+
+.wave-3 {
+  width: 200px;
+  height: 200px;
+  top: 50px;
+  left: 75px;
+  animation-delay: 1s;
+}
+
+.wave-4 {
+  width: 250px;
+  height: 250px;
+  top: 25px;
+  left: 50px;
+  animation-delay: 1.5s;
+}
+
+.wave-5 {
+  width: 300px;
+  height: 300px;
+  top: 0px;
+  left: 25px;
+  animation-delay: 2s;
+}
+
+.neural-connections {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
-  border-radius: var(--radius-lg);
+}
+
+.connection {
+  position: absolute;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.8), 
+    rgba(103, 126, 234, 0.8));
+  border-radius: 2px;
+  animation: connectionPulse 2s ease-in-out infinite;
+}
+
+.con-1 {
+  width: 60px;
+  height: 2px;
+  top: 60px;
+  left: 100px;
+  transform: rotate(25deg);
+  animation-delay: 0s;
+}
+
+.con-2 {
+  width: 80px;
+  height: 2px;
+  top: 100px;
+  left: 80px;
+  transform: rotate(-15deg);
+  animation-delay: 0.7s;
+}
+
+.con-3 {
+  width: 50px;
+  height: 2px;
+  top: 140px;
+  left: 120px;
+  transform: rotate(45deg);
+  animation-delay: 1.4s;
+}
+
+.con-4 {
+  width: 70px;
+  height: 2px;
+  top: 80px;
+  left: 140px;
+  transform: rotate(-30deg);
+  animation-delay: 0.3s;
+}
+
+@keyframes brainPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes brainGlow {
+  0% {
+    box-shadow: 0 0 30px rgba(103, 126, 234, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(103, 126, 234, 0.8);
+  }
+}
+
+@keyframes lobeActivity {
+  0%, 100% {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes waveExpand {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes connectionPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .product-image {
