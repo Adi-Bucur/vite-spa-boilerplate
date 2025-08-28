@@ -1,5 +1,4 @@
 import './style.css'
-import lottie from 'lottie-web'
 
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
@@ -212,18 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Lottie animation for neural network
-  const lottieContainer = document.getElementById('lottie-animation');
-  if (lottieContainer) {
-    // Load local Lottie file
-    lottie.loadAnimation({
-      container: lottieContainer,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/Brain.lottie'
-    });
-  }
 
   // Smooth reveal animation for sections
   const sections = document.querySelectorAll('section:not(.hero)');
